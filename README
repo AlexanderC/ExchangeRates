@@ -5,7 +5,11 @@ ExchangeRates Library
 Create a library that parses exchange rates using different providers.
 
 ##Installation##
- - Using composer `composer install`
+ - Using [Composer](https://getcomposer.org) `composer install`
+
+##Available Providers##
+ - Moldova R. of
+    - [CursMD](http://curs.md) (aka curs_md)
 
 ##Basic Usage##
 ```php
@@ -31,3 +35,6 @@ foreach($client->parse(new \DateTime()) as $rate) {
 ##TODO##
  - Unit tests
  - Add more providers
+ 
+##License##
+ - Apache v2.0

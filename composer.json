@@ -1,6 +1,6 @@
 {
   "name": "alexanderc/exchange-rates",
-  "description": "ExchangeRates is a library that parses various exchange rates using different providers",
+  "description": "Library that parses exchange rates of different countries using different providers",
   "minimum-stability": "stable",
   "license": "Apache v2",
   "authors": [
