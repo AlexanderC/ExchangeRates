@@ -3,7 +3,9 @@ ExchangeRates Library
 Library that parses exchange rates of different countries using different providers
 
 ##Installation##
- - Using [Composer](https://getcomposer.org) `composer install`
+ - Using [Composer](https://getcomposer.org)
+    - Add in your `composer.json` under require section: `"alexanderc/exchange-rates": "dev-master"`
+    - Run `composer.phar install` or `composer.phar update`
 
 ##Available Providers##
  - Moldova R. of
