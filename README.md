@@ -1,8 +1,6 @@
 ExchangeRates Library
 =====================
-
-##Main Goal##
-Create a library that parses exchange rates using different providers.
+Library that parses exchange rates of different countries using different providers
 
 ##Installation##
  - Using [Composer](https://getcomposer.org) `composer install`
