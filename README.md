@@ -41,3 +41,8 @@ foreach($client->parse(new \DateTime()) as $rate) {
  
 ##License##
  - Apache v2.0
+ 
+##Sponsors##
+ - [PyCoding](http://www.pycoding.biz)
+
+ 
