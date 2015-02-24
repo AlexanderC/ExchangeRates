@@ -40,15 +40,17 @@ class CursMdProvider extends AbstractProvider
         $collection = [];
 
         foreach ($this->extractData($rawData) as list($type, $exchangeRate, $mainCurrency, $bank)) {
-            $collection[] = new ExchangeRate(
-                $type,
-                $exchangeRate,
-                $mainCurrency,
-                self::LOCAL_CURRENCY,
-                $date,
-                self::COUNTRY,
-                $bank
-            );
+            if($exchangeRate > 0.0) {
+                $collection[] = new ExchangeRate(
+                    $type,
+                    $exchangeRate,
+                    $mainCurrency,
+                    self::LOCAL_CURRENCY,
+                    $date,
+                    self::COUNTRY,
+                    $bank
+                );
+            }
         }
 
         return new Collection($collection);

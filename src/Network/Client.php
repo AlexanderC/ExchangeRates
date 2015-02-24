@@ -8,8 +8,8 @@
 
 namespace ExchangeRates\Network;
 
-use Doctrine\Common\Inflector\Inflector;
 use ExchangeRates\Network\Driver\DriverInterface;
+use ExchangeRates\Network\Driver\Factory;
 
 /**
  * Class Client
@@ -47,10 +47,7 @@ class Client
      */
     public static function create($driverName = null)
     {
-        $driverName = $driverName ?: self::DEFAULT_DRIVER;
-        $driverClass = sprintf(__NAMESPACE__ . "\\Driver\\%sDriver", Inflector::classify($driverName));
-
-        return new static(new $driverClass());
+        return new static(Factory::create($driverName ?: self::DEFAULT_DRIVER));
     }
 
     /**

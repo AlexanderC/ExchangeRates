@@ -9,6 +9,7 @@
 namespace ExchangeRates\Provider;
 
 use ExchangeRates\Collection;
+use ExchangeRates\Network\Client;
 
 
 /**
@@ -32,6 +33,31 @@ class MultiProvider extends AbstractProvider
         foreach($providers as $provider) {
             $this->addProvider($provider);
         }
+    }
+
+    /**
+     * @param Client $networkClient
+     * @return $this
+     */
+    public function setNetworkClient(Client $networkClient)
+    {
+        foreach($this->providers as $provider) {
+            if(!$provider->getNetworkClient()) {
+                $provider->setNetworkClient($networkClient);
+            }
+        }
+
+        $this->networkClient = $networkClient;
+        return $this;
+    }
+
+    /**
+     * @param string $providerName
+     * @return MultiProvider
+     */
+    public function createAndAddProvider($providerName)
+    {
+        return $this->addProvider(Factory::create($providerName));
     }
 
     /**
@@ -75,6 +101,10 @@ class MultiProvider extends AbstractProvider
     {
         if($this->containsProvider($provider)) {
             throw new \BadMethodCallException("Such provider already exists");
+        }
+
+        if(!$provider->getNetworkClient() && $this->getNetworkClient()) {
+            $provider->setNetworkClient($this->getNetworkClient());
         }
 
         $this->providers->attach($provider);

@@ -9,8 +9,8 @@
 namespace ExchangeRates;
 
 
-use Doctrine\Common\Inflector\Inflector;
 use ExchangeRates\Network\Client as NetworkClient;
+use ExchangeRates\Provider\Factory;
 
 /**
  * Class Client
@@ -65,13 +65,7 @@ class Client
      */
     public static function create($providerName, $networkDriverName = null)
     {
-        $providerClass = $providerName;
-
-        if(!class_exists($providerName)) {
-            $providerClass = sprintf(__NAMESPACE__ . "\\Provider\\%sProvider", Inflector::classify($providerName));
-        }
-
-        $provider = new $providerClass();
+        $provider = Factory::create($providerName);
         $networkClient = NetworkClient::create($networkDriverName);
 
         return new static($provider, $networkClient);
