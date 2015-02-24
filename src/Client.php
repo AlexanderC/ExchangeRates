@@ -65,7 +65,12 @@ class Client
      */
     public static function create($providerName, $networkDriverName = null)
     {
-        $providerClass = sprintf(__NAMESPACE__ . "\\Provider\\%sProvider", Inflector::classify($providerName));
+        $providerClass = $providerName;
+
+        if(!class_exists($providerName)) {
+            $providerClass = sprintf(__NAMESPACE__ . "\\Provider\\%sProvider", Inflector::classify($providerName));
+        }
+
         $provider = new $providerClass();
         $networkClient = NetworkClient::create($networkDriverName);
 
