@@ -1,0 +1,21 @@
+{
+  "name": "alexanderc/exchange-rates",
+  "description": "ExchangeRates is a library that parses various exchange rates using different providers",
+  "minimum-stability": "stable",
+  "license": "Apache v2",
+  "authors": [
+    {
+      "name": "AlexanderC",
+      "email": "self@alexanderc.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ExchangeRates\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.5.2",
+    "doctrine/inflector": "1.0.*@dev"
+  }
+}
