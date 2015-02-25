@@ -36,7 +36,10 @@ class Collection extends ArrayAccess
      */
     public function merge(Collection $collection)
     {
-        $this->collection = array_merge($this->collection, $collection->getCollection());
+        foreach($collection as $exchangeRate) {
+            $this->collection[] = $exchangeRate;
+        }
+
         return $this;
     }
 

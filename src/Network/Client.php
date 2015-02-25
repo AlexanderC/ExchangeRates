@@ -14,7 +14,7 @@ use ExchangeRates\Network\Driver\Factory;
 /**
  * Class Client
  * @package ExchangeRates\Network
- * @method string fetch($endpoint, array $parameters, $method = Driver\AbstractDriver::GET)
+ * @method string fetch($endpoint, array $parameters = [], array $headers = [], $method = Driver\AbstractDriver::GET)
  */
 class Client
 {

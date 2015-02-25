@@ -12,12 +12,12 @@ namespace ExchangeRates\Network\Driver;
  * Class AbstractDriver
  * @package ExchangeRates\Network\Driver
  *
- * @method string get($endpoint, array $parameters)
- * @method string post($endpoint, array $data)
- * @method string put($endpoint, array $data)
- * @method string delete($endpoint, array $parameters)
- * @method string head($endpoint, array $parameters)
- * @method string options($endpoint, array $parameters)
+ * @method string get($endpoint, array $parameters = [], array $headers = [])
+ * @method string post($endpoint, array $data = [], array $headers = [])
+ * @method string put($endpoint, array $data = [], array $headers = [])
+ * @method string delete($endpoint, array $parameters = [], array $headers = [])
+ * @method string head($endpoint, array $parameters = [], array $headers = [])
+ * @method string options($endpoint, array $parameters = [], array $headers = [])
  */
 abstract class AbstractDriver implements DriverInterface
 {

@@ -9,8 +9,15 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use ExchangeRates\Client;
+use ExchangeRates\Provider\MultiProvider;
 
-$client = Client::create('curs_md');
+$client = Client::create('multi');
+
+/** @var MultiProvider $provider */
+$provider = $client->getProvider();
+
+$provider->createAndAddProvider('curs_md');
+$provider->createAndAddProvider('point_md');
 
 foreach($client->parse(new \DateTime()) as $rate) {
     echo sprintf(

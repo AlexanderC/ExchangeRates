@@ -26,7 +26,7 @@ class MultiProvider extends AbstractProvider
     /**
      * @param array $providers
      */
-    public function __construct(array $providers)
+    public function __construct(array $providers = [])
     {
         $this->providers = new \SplObjectStorage();
 

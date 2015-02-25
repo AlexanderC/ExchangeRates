@@ -35,7 +35,7 @@ class CursMdProvider extends AbstractProvider
         $dateString = $date->format('d.m.Y');
         $parameters = [self::DATE_PARAMETER => $dateString];
 
-        $rawData = $this->networkClient->fetch(self::ENDPOINT, $parameters, AbstractDriver::POST);
+        $rawData = $this->networkClient->fetch(self::ENDPOINT, $parameters, [], AbstractDriver::POST);
 
         $collection = [];
 

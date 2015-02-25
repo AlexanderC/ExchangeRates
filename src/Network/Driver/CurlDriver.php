@@ -20,11 +20,12 @@ class CurlDriver extends AbstractDriver
     /**
      * @param string $endpoint
      * @param array $parameters
+     * @param array $headers
      * @param string $method
      * @return string
      * @throws \ExchangeRates\Network\Exception\FetchException
      */
-    function fetch($endpoint, array $parameters, $method = self::GET)
+    function fetch($endpoint, array $parameters = [], array $headers = [], $method = self::GET)
     {
         $ch = curl_init();
 
@@ -40,6 +41,14 @@ class CurlDriver extends AbstractDriver
         } else {
             curl_setopt($ch, CURLOPT_URL, $this->buildUrl($endpoint, $parameters));
         }
+
+        $rawHeaders = [];
+
+        foreach($headers as $name => $value) {
+            $rawHeaders[] = sprintf("%s: %s", $name, $value);
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $rawHeaders);
 
         $result = curl_exec($ch);
 

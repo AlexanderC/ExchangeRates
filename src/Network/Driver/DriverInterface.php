@@ -25,9 +25,10 @@ interface DriverInterface
     /**
      * @param string $endpoint
      * @param array $parameters
+     * @param array $headers
      * @param string $method
      * @return string
      * @throws \ExchangeRates\Network\Exception\FetchException
      */
-    function fetch($endpoint, array $parameters, $method = self::GET);
+    function fetch($endpoint, array $parameters = [], array $headers = [], $method = self::GET);
 }
