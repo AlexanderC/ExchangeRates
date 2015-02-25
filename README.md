@@ -13,6 +13,7 @@ See `composer.json`
 ##Available Providers##
  - Moldova R. of
     - [CursMD](http://curs.md) (aka curs_md)
+    - [PointMD](http://point.md) (aka point_md)
 
 ##Basic Usage##
 ```php
