@@ -36,6 +36,8 @@ foreach($client->parse(new \DateTime()) as $rate) {
 }
 ```
 
+Check [https://github.com/AlexanderC/ExchangeRates/blob/master/tests/basic.php](tests/basic.php) for more examples
+
 ##TODO##
  - Unit tests
  - Add more providers
