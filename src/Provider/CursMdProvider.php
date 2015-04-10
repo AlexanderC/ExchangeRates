@@ -73,15 +73,17 @@ class CursMdProvider extends AbstractProvider
 
         $currencies = [];
 
-        foreach ($table->xpath("thead/tr[position()=1]/td") as $currencyNode) {
-            $currencies[] = (string)$currencyNode;
+        $currencies[] = trim((string)$table->xpath("thead/tr[position()=1]/td[position()=1]/span")[0]);
+
+        foreach ($table->xpath("thead/tr[position()=1]/td[position()>1]") as $currencyNode) {
+            $currencies[] = trim((string)$currencyNode);
         }
 
         $currenciesCount = count($currencies);
         $currencyKey = 0;
 
         foreach ($table->xpath("tbody/tr") as $ratesRow) {
-            $bank = (string)$ratesRow->xpath("td[@class='bank_name']/a")[0];
+            $bank = trim((string)$ratesRow->xpath("td[@class='bank_name']/a")[0]);
 
             foreach ($ratesRow->xpath("td[position() mod 2 = 0]") as $buyRate) {
                 yield [
